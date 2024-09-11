@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重要なお知らせ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #333333;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        header {
+            background: #e60012;
+            color: #ffffff;
+            padding: 15px 0;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #ffcc00;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .alert {
+            border: 1px solid #e60012;
+            border-radius: 8px;
+            padding: 20px;
+            background: #4d0000;
+            color: #ffcc00;
+        }
+
+        .alert h2 {
+            margin-top: 0;
+            color: #ffcc00;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            color: #ffffff;
+        }
+
+        table, th, td {
+            border: 1px solid #000000;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #e60012;
+            color: #ffffff;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ffcc00;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #e6b800;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #e60012;
+            color: #ffffff;
+            border-radius: 0 0 8px 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>重要なお知らせ</h1>
+        </header>
+        <main>
+            <section class="alert">
+                <h2>お支払いのご確認</h2>
+                <p>この度はご利用いただきありがとうございます。お客様のアカウントには以下の請求が発生しております。至急の対応をお願い申し上げます。</p>
+                <table>
+                    <tr>
+                        <th>請求内容</th>
+                        <th>金額</th>
+                    </tr>
+                    <tr>
+                        <td>サービス料金</td>
+                        <td>¥50,000</td>
+                    </tr>
+                    <tr>
+                        <td>追加料金</td>
+                        <td>¥5,000</td>
+                    </tr>
+                </table>
+                <p>詳細については、下記のリンクからご確認ください。</p>
+                <!-- リンク先をpurchase_complete.htmlに設定 -->
+                <a href="purchase_complete.html" class="button">詳細確認</a>
+            </section>
+        </main>
+        <footer>
+            <p>© 2024 架空請求株式会社</p>
+        </footer>
+    </div>
+</body>
+</html>

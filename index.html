@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECサイト</title>
+    <style>
+        /* Resetting some default browser styles */
+        body, h1, h2, p, ul, li, input, button {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Header styling */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        header .logo {
+            float: left;
+            font-size: 24px;
+            margin-left: 20px;
+        }
+
+        header nav {
+            float: left;
+            margin-left: 20px;
+        }
+
+        header nav ul {
+            list-style: none;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        header .search-bar {
+            float: left;
+            margin-left: 20px;
+        }
+
+        header .search-bar input[type="text"] {
+            padding: 5px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+
+        header .search-bar button {
+            padding: 5px 10px;
+            border: none;
+            background: #ff5722;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        header .cart-icon {
+            float: right;
+            margin-right: 20px;
+        }
+
+        header .cart-icon a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Main content styling */
+        main {
+            padding: 20px 0;
+        }
+
+        .banner {
+            background: #ff5722;
+            color: #fff;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .banner h1 {
+            font-size: 36px;
+        }
+
+        .banner p {
+            font-size: 18px;
+        }
+
+        /* Product cards styling */
+        .products {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            text-align: center;
+            width: 30%;
+            margin-bottom: 20px;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product-card h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product-card p {
+            font-size: 16px;
+            color: #ff5722;
+        }
+
+        .product-card button {
+            padding: 10px;
+            border: none;
+            background: #ff5722;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Cart styling */
+        .cart {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .cart.active {
+            display: block;
+        }
+
+        .cart .close {
+            display: block;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .cart .close button {
+            border: none;
+            background: #ff5722;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item p {
+            margin: 5px 0;
+        }
+
+        .checkout-button {
+            display: block;
+            padding: 10px;
+            background: #ff5722;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .checkout-button:hover {
+            background: #e64a19;
+        }
+
+        /* Footer styling */
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-info {
+            margin-bottom: 10px;
+        }
+
+        .footer-info p {
+            margin: 0;
+        }
+
+        .social-media a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .newsletter {
+            margin-top: 10px;
+        }
+
+        .newsletter input[type="email"] {
+            padding: 5px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .newsletter button {
+            padding: 5px 10px;
+            border: none;
+            background: #ff5722;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">MyShop</div>
+            <nav>
+                <ul>
+                    <li><a href="#">ホーム</a></li>
+                    <li><a href="#">カテゴリ</a></li>
+                    <li><a href="#">特集</a></li>
+                    <li><a href="#">セール</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="商品を検索...">
+                <button>検索</button>
+            </div>
+            <div class="cart-icon">
+                <a href="#" id="cartButton">カート (0)</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="banner">
+            <div class="container">
+                <h1>新商品をチェック！</h1>
+                <p>最新のセールや新商品情報をお見逃しなく。</p>
+            </div>
+        </section>
+
+        <section class="products container">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/150" alt="商品1">
+                <h2>商品名1</h2>
+                <p>¥1,000</p>
+                <button onclick="addToCart('商品名1', 1000)">カートに追加</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/150" alt="商品2">
+                <h2>商品名2</h2>
+                <p>¥2,000</p>
+                <button onclick="addToCart('商品名2', 2000)">カートに追加</button>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/150" alt="商品3">
+                <h2>商品名3</h2>
+                <p>¥3,000</p>
+                <button onclick="addToCart('商品名3', 3000)">カートに追加</button>
+            </div>
+        </section>
+    </main>
+
+    <div id="cart" class="cart">
+        <div class="close">
+            <button onclick="closeCart()">閉じる</button>
+        </div>
+        <div id="cartItems">
+            <!-- Cart items will be added here -->
+        </div>
+        <div id="cartTotal">
+            <p>合計: ¥0</p>
+        </div>
+        <a href="payment.html" class="checkout-button">決済画面に進む</a>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-info">
+                <p>会社概要 | 連絡先 | FAQ | プライバシーポリシー</p>
+            </div>
+            <div class="social-media">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+            <div class="newsletter">
+                <input type="email" placeholder="ニュースレター登録">
+                <button>登録</button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let cart = [];
+        const cartButton = document.getElementById('cartButton');
+        const cartDiv = document.getElementById('cart');
+        const cartItemsDiv = document.getElementById('cartItems');
+        const cartTotalDiv = document.getElementById('cartTotal');
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+
+        function updateCart() {
+            // Update cart items
+            cartItemsDiv.innerHTML = '';
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price;
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cart-item';
+                itemDiv.innerHTML = `<p>${item.name} - ¥${item.price}</p>`;
+                cartItemsDiv.appendChild(itemDiv);
+            });
+
+            // Update total
+            cartTotalDiv.innerHTML = `<p>合計: ¥${total}</p>`;
+
+            // Update cart button count
+            cartButton.innerText = `カート (${cart.length})`;
+        }
+
+        function closeCart() {
+            cartDiv.classList.remove('active');
+        }
+
+        cartButton.addEventListener('click', () => {
+            cartDiv.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
