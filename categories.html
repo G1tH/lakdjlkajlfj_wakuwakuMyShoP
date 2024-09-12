@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ワクワクSHOP - トップページ</title>
+    <title>カテゴリ - ワクワクSHOP</title>
     <style>
         /* Resetting some default browser styles */
-        body, h1, h2, p, ul, li, input, button {
+        body, h1, h2, p, ul, li, a {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -93,122 +93,36 @@
             padding: 20px 0;
         }
 
-        .banner {
-            background: #ff5722;
-            color: #fff;
-            text-align: center;
-            padding: 50px 0;
-        }
-
-        .banner h1 {
-            font-size: 36px;
-        }
-
-        .banner p {
-            font-size: 18px;
-        }
-
-        .products {
+        .category-list {
             display: flex;
-            justify-content: space-between;
             flex-wrap: wrap;
+            justify-content: space-between;
         }
 
-        .product-card {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 10px;
-            text-align: center;
-            width: 30%;
-            margin-bottom: 20px;
-        }
-
-        .product-card img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .product-card h2 {
-            font-size: 18px;
-            margin: 10px 0;
-        }
-
-        .product-card p {
-            font-size: 16px;
-            color: #ff5722;
-        }
-
-        .product-card button {
-            padding: 10px;
-            border: none;
-            background: #ff5722;
-            color: #fff;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        /* Cart styling */
-        .cart {
-            display: none;
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 300px;
+        .category-card {
             background: #fff;
             border: 1px solid #ddd;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            z-index: 1000;
+            text-align: center;
+            width: 30%;
+            margin-bottom: 20px;
         }
 
-        .cart.active {
-            display: block;
-        }
-
-        .cart .close {
-            display: block;
-            text-align: right;
+        .category-card h2 {
+            font-size: 22px;
             margin-bottom: 10px;
         }
 
-        .cart .close button {
-            border: none;
-            background: #ff5722;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .cart-item {
-            border-bottom: 1px solid #ddd;
-            padding: 10px 0;
-        }
-
-        .cart-item:last-child {
-            border-bottom: none;
-        }
-
-        .cart-item p {
-            margin: 5px 0;
-        }
-
-        .checkout-button {
-            display: block;
-            padding: 10px;
-            background: #ff5722;
-            color: #fff;
-            text-align: center;
-            border-radius: 5px;
+        .category-card a {
             text-decoration: none;
-            margin-top: 10px;
+            color: #ff5722;
+            font-size: 18px;
         }
 
-        .checkout-button:hover {
-            background: #e64a19;
+        .category-card a:hover {
+            text-decoration: underline;
         }
 
         /* Footer styling */
@@ -285,32 +199,20 @@
     </header>
 
     <main>
-        <section class="banner">
-            <div class="container">
-                <h1>新商品をチェック！</h1>
-                <p>最新のセールや新商品情報をお見逃しなく。</p>
+        <section class="category-list container">
+            <div class="category-card">
+                <h2>カテゴリ1</h2>
+                <a href="https://www.machidashoten.com/menu">こちらから見る</a>
             </div>
-        </section>
-
-        <section class="products container">
-            <div class="product-card">
-                <img src="images/pic1.png" alt="商品1">
-                <h2>商品名1</h2>
-                <p>¥1,000</p>
-                <button onclick="addToCart('商品名1', 1000)">カートに追加</button>
+            <div class="category-card">
+                <h2>カテゴリ2</h2>
+                <a href="https://www.machidashoten.com/menu">こちらから見る</a>
             </div>
-            <div class="product-card">
-                <img src="images/pic2.png" alt="商品2">
-                <h2>商品名2</h2>
-                <p>¥2,000</p>
-                <button onclick="addToCart('商品名2', 2000)">カートに追加</button>
+            <div class="category-card">
+                <h2>カテゴリ3</h2>
+                <a href="https://www.machidashoten.com/menu">こちらから見る</a>
             </div>
-            <div class="product-card">
-                <img src="images/pic3.png" alt="商品3">
-                <h2>商品名3</h2>
-                <p>¥3,000</p>
-                <button onclick="addToCart('商品名3', 3000)">カートに追加</button>
-            </div>
+            <!-- Add more categories as needed -->
         </section>
     </main>
 
@@ -330,15 +232,6 @@
         </div>
     </footer>
 
-    <!-- Cart modal -->
-    <div class="cart" id="cartModal">
-        <div class="close">
-            <button onclick="closeCart()">閉じる</button>
-        </div>
-        <h2>カート</h2>
-        <div id="cartItems"></div>
-        <a href="payment.html" class="checkout-button">決済画面に進む</a>
-    </div>
 
     <script>
         // Dummy cart functionality

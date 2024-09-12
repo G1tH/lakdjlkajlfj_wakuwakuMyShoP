@@ -155,6 +155,21 @@
             border-radius: 0 5px 5px 0;
             cursor: pointer;
         }
+
+        .home-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #ff5722;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .home-button:hover {
+            background: #e64a19;
+        }
     </style>
 </head>
 <body>
@@ -224,6 +239,8 @@
 
             <h2>アクセス</h2>
             <p>最寄り駅: JR東京駅から徒歩10分<br>駐車場: 近隣に有料駐車場があります</p>
+
+            <a href="index.html" class="home-button">ホームに戻る</a>
         </div>
     </main>
 
@@ -247,9 +264,6 @@
     <script>
         let cart = [];
         const cartButton = document.getElementById('cartButton');
-        const cartDiv = document.getElementById('cart');
-        const cartItemsDiv = document.getElementById('cartItems');
-        const cartTotalDiv = document.getElementById('cartTotal');
 
         function addToCart(name, price) {
             cart.push({ name, price });
@@ -258,13 +272,11 @@
 
         function updateCart() {
             // Update cart items
-            cartItemsDiv.innerHTML = '';
+            // No implementation for cart display, assuming it's handled elsewhere
             let total = 0;
             cart.forEach(item => {
-                cartItemsDiv.innerHTML += `<p>${item.name} - ¥${item.price}</p>`;
                 total += item.price;
             });
-            cartTotalDiv.innerHTML = `合計: ¥${total}`;
             cartButton.innerText = `カート (${cart.length})`;
         }
     </script>
