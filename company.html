@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会社概要 - ワクワクSHOP</title>
+    <style>
+        /* Resetting some default browser styles */
+        body, h1, h2, p, ul, li, input, button {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Header styling */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        header .logo {
+            float: left;
+            font-size: 24px;
+            margin-left: 20px;
+        }
+
+        header nav {
+            float: left;
+            margin-left: 20px;
+        }
+
+        header nav ul {
+            list-style: none;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        header .search-bar {
+            float: left;
+            margin-left: 20px;
+        }
+
+        header .search-bar input[type="text"] {
+            padding: 5px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+
+        header .search-bar button {
+            padding: 5px 10px;
+            border: none;
+            background: #ff5722;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        header .cart-icon {
+            float: right;
+            margin-right: 20px;
+        }
+
+        header .cart-icon a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Main content styling */
+        main {
+            padding: 20px 0;
+        }
+
+        .company-info {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .company-info h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .company-info h2 {
+            font-size: 22px;
+            margin-top: 20px;
+        }
+
+        .company-info p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        /* Footer styling */
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-info {
+            margin-bottom: 10px;
+        }
+
+        .footer-info p {
+            margin: 0;
+        }
+
+        .social-media a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .newsletter {
+            margin-top: 10px;
+        }
+
+        .newsletter input[type="email"] {
+            padding: 5px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .newsletter button {
+            padding: 5px 10px;
+            border: none;
+            background: #ff5722;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">MyShop</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="#">カテゴリ</a></li>
+                    <li><a href="#">特集</a></li>
+                    <li><a href="#">セール</a></li>
+                    <li><a href="company.html">会社概要</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="商品を検索...">
+                <button>検索</button>
+            </div>
+            <div class="cart-icon">
+                <a href="#" id="cartButton">カート (0)</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container company-info">
+            <h1>会社概要</h1>
+            <h2>会社名</h2>
+            <p>株式会社ワクワクSHOP</p>
+
+            <h2>設立</h2>
+            <p>20XX年X月</p>
+
+            <h2>代表者</h2>
+            <p>代表取締役　古田 伊吹</p>
+
+            <h2>所在地</h2>
+            <p>〒123-4567<br>東京都千代田区丸の内1-1-1</p>
+
+            <h2>事業内容</h2>
+            <ul>
+                <li>オンライン小売業: 多様な商品を提供するECサイト「ワクワクSHOP」の運営</li>
+                <li>物流管理: 商品の保管、配送、在庫管理</li>
+                <li>カスタマーサポート: 顧客からの問い合わせ対応、商品リターン処理</li>
+            </ul>
+
+            <h2>企業理念</h2>
+            <p>私たち「ワクワクSHOP」は、お客様に楽しく、便利で、満足していただけるショッピング体験を提供することを目指しています。最新のトレンドを反映した商品ラインアップと、迅速で信頼性の高い配送サービスを通じて、皆様に喜んでいただけることを心から願っています。</p>
+
+            <h2>経営方針</h2>
+            <ol>
+                <li>顧客第一主義: お客様のニーズに耳を傾け、最高のサービスを提供します。</li>
+                <li>革新と成長: 常に新しいアイデアを追求し、成長を続けます。</li>
+                <li>社会貢献: 持続可能な社会づくりに貢献する企業活動を行います。</li>
+            </ol>
+
+            <h2>主要取引先</h2>
+            <ul>
+                <li>株式会社ABC: 商品供給パートナー</li>
+                <li>株式会社DEF: 物流パートナー</li>
+                <li>株式会社GHI: 広告代理店</li>
+            </ul>
+
+            <h2>お問い合わせ</h2>
+            <p>電話番号: 01-2345-6789<br>メールアドレス: ibukinonoshion@yahoo.co.jp<br>営業時間: 平日9:00 - 18:00（祝祭日を除く）</p>
+
+            <h2>アクセス</h2>
+            <p>最寄り駅: JR東京駅から徒歩10分<br>駐車場: 近隣に有料駐車場があります</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-info">
+                <p><a href="index.html" style="color: #fff; text-decoration: none;">ホーム</a> | <a href="company.html" style="color: #fff; text-decoration: none;">会社概要</a> | <a href="#" style="color: #fff; text-decoration: none;">連絡先</a> | <a href="#" style="color: #fff; text-decoration: none;">FAQ</a> | <a href="#" style="color: #fff; text-decoration: none;">プライバシーポリシー</a></p>
+            </div>
+            <div class="social-media">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+            <div class="newsletter">
+                <input type="email" placeholder="ニュースレター登録">
+                <button>登録</button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let cart = [];
+        const cartButton = document.getElementById('cartButton');
+        const cartDiv = document.getElementById('cart');
+        const cartItemsDiv = document.getElementById('cartItems');
+        const cartTotalDiv = document.getElementById('cartTotal');
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+
+        function updateCart() {
+            // Update cart items
+            cartItemsDiv.innerHTML = '';
+            let total = 0;
+            cart.forEach(item => {
+                cartItemsDiv.innerHTML += `<p>${item.name} - ¥${item.price}</p>`;
+                total += item.price;
+            });
+            cartTotalDiv.innerHTML = `合計: ¥${total}`;
+            cartButton.innerText = `カート (${cart.length})`;
+        }
+    </script>
+</body>
+</html>

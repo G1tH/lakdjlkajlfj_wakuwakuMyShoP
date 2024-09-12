@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECサイト</title>
+    <title>ワクワクSHOP</title>
     <style>
         /* Resetting some default browser styles */
         body, h1, h2, p, ul, li, input, button {
@@ -228,6 +228,15 @@
             margin: 0;
         }
 
+        .footer-info a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-info a:hover {
+            text-decoration: underline;
+        }
+
         .social-media a {
             color: #fff;
             text-decoration: none;
@@ -257,7 +266,7 @@
 <body>
     <header>
         <div class="container">
-            <div class="logo">MyShop</div>
+            <div class="logo">ワクワクSHOP</div>
             <nav>
                 <ul>
                     <li><a href="#">ホーム</a></li>
@@ -286,19 +295,19 @@
 
         <section class="products container">
             <div class="product-card">
-                <img src="https://via.placeholder.com/150" alt="商品1">
+                <img src="images/pic1.png" alt="商品1">
                 <h2>商品名1</h2>
                 <p>¥1,000</p>
                 <button onclick="addToCart('商品名1', 1000)">カートに追加</button>
             </div>
             <div class="product-card">
-                <img src="https://via.placeholder.com/150" alt="商品2">
+                <img src="images/pic2.png" alt="商品2">
                 <h2>商品名2</h2>
                 <p>¥2,000</p>
                 <button onclick="addToCart('商品名2', 2000)">カートに追加</button>
             </div>
             <div class="product-card">
-                <img src="https://via.placeholder.com/150" alt="商品3">
+                <img src="images/pic3.png" alt="商品3">
                 <h2>商品名3</h2>
                 <p>¥3,000</p>
                 <button onclick="addToCart('商品名3', 3000)">カートに追加</button>
@@ -306,73 +315,62 @@
         </section>
     </main>
 
-    <div id="cart" class="cart">
-        <div class="close">
-            <button onclick="closeCart()">閉じる</button>
-        </div>
-        <div id="cartItems">
-            <!-- Cart items will be added here -->
-        </div>
-        <div id="cartTotal">
-            <p>合計: ¥0</p>
-        </div>
-        <a href="payment.html" class="checkout-button">決済画面に進む</a>
-    </div>
-
     <footer>
-        <div class="container">
-            <div class="footer-info">
-                <p>会社概要 | 連絡先 | FAQ | プライバシーポリシー</p>
-            </div>
-            <div class="social-media">
-                <a href="#">Facebook</a>
-                <a href="#">Twitter</a>
-                <a href="#">Instagram</a>
-            </div>
-            <div class="newsletter">
-                <input type="email" placeholder="ニュースレター登録">
-                <button>登録</button>
-            </div>
+        <div class="container footer-info">
+            <p><a href="company.html">会社概要</a> | <a href="contact.html">連絡先</a> | <a href="faq.html">FAQ</a> | <a href="privacy.html">プライバシーポリシー</a></p>
+        </div>
+        <div class="newsletter">
+            <p>ニュースレターに登録する:</p>
+            <input type="email" placeholder="メールアドレス">
+            <button>登録</button>
+        </div>
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
         </div>
     </footer>
 
+    <!-- Cart modal -->
+    <div class="cart" id="cartModal">
+        <div class="close">
+            <button onclick="closeCart()">閉じる</button>
+        </div>
+        <h2>カート</h2>
+        <div id="cartItems"></div>
+        <a href="payment.html" class="checkout-button">決済画面に進む</a>
+    </div>
+
     <script>
+        // Dummy cart functionality
         let cart = [];
-        const cartButton = document.getElementById('cartButton');
-        const cartDiv = document.getElementById('cart');
-        const cartItemsDiv = document.getElementById('cartItems');
-        const cartTotalDiv = document.getElementById('cartTotal');
 
         function addToCart(name, price) {
-            cart.push({ name, price });
+            cart.push({name, price});
             updateCart();
         }
 
         function updateCart() {
-            // Update cart items
-            cartItemsDiv.innerHTML = '';
+            const cartItems = document.getElementById('cartItems');
+            cartItems.innerHTML = '';
             let total = 0;
             cart.forEach(item => {
                 total += item.price;
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'cart-item';
-                itemDiv.innerHTML = `<p>${item.name} - ¥${item.price}</p>`;
-                cartItemsDiv.appendChild(itemDiv);
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerHTML = `<p>${item.name} - ¥${item.price}</p>`;
+                cartItems.appendChild(itemElement);
             });
-
-            // Update total
-            cartTotalDiv.innerHTML = `<p>合計: ¥${total}</p>`;
-
-            // Update cart button count
-            cartButton.innerText = `カート (${cart.length})`;
+            cartItems.innerHTML += `<p><strong>合計: ¥${total}</strong></p>`;
+            document.getElementById('cartButton').innerText = `カート (${cart.length})`;
         }
 
         function closeCart() {
-            cartDiv.classList.remove('active');
+            document.getElementById('cartModal').classList.remove('active');
         }
 
-        cartButton.addEventListener('click', () => {
-            cartDiv.classList.toggle('active');
+        document.getElementById('cartButton').addEventListener('click', function() {
+            document.getElementById('cartModal').classList.toggle('active');
         });
     </script>
 </body>
